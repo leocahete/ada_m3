@@ -25,13 +25,7 @@ public class ClientePJ extends Cliente{
     public String getCnpj() {
         return cnpj;
     }
-/*
-    public ClientePJ(String nome, String cpnj) {
-        super(nome);
-        this.cnpj = cpnj;
-        BancoDadosService.incluirCliente(this);
-    }
-*/
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

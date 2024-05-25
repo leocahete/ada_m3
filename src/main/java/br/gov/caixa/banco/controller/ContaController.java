@@ -2,6 +2,7 @@ package br.gov.caixa.banco.controller;
 
 import br.gov.caixa.banco.dto.ContaDTO;
 import br.gov.caixa.banco.service.ContaCorrentePFService;
+import br.gov.caixa.banco.service.ContaInvestimentoPFService;
 import br.gov.caixa.banco.usuario.Usuario;
 import br.gov.caixa.banco.exception.NaoEncontradoException;
 import br.gov.caixa.banco.exception.SaldoExistenteException;
@@ -26,6 +27,7 @@ import java.util.stream.Collectors;
 public class ContaController {
 
     private final ContaCorrentePFService service;
+    private final ContaInvestimentoPFService serviceInvest;
     private final ModelMapper modelMapper;
     private final JwtService jwtService;
 
@@ -101,6 +103,17 @@ public class ContaController {
         String token = bearerToken.substring(7);
         Usuario u = (Usuario) jwtService.getUserDetails(token);
         return u.getCpf();
+    }
+
+    //Novo endpoint investir
+    @PostMapping("/investir")
+    @PreAuthorize("hasAnyRole(T(Role).ADMIN.name(),T(Role).CLIENTE.name())")
+    public ResponseEntity<ContaDTO> investir(@Valid @RequestBody ContaDTO contaDTO, @RequestHeader (name="Authorization") String bearerToken){
+        try {
+            return new ResponseEntity<>(serviceInvest.investir(contaDTO), HttpStatus.OK);
+        } catch (ValorInvalidoException e) {
+            return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
     }
 
 }

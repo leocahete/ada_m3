@@ -11,6 +11,7 @@ import br.gov.caixa.banco.model.ContaCorrente;
 import br.gov.caixa.banco.repository.ContaRepository;
 import br.gov.caixa.banco.service.consultaSaldo.ConsultaSaldo;
 import br.gov.caixa.banco.service.deposito.Deposito;
+import br.gov.caixa.banco.service.investimento.InvestirPFImpl;
 import br.gov.caixa.banco.service.saque.SaquePFImpl;
 import br.gov.caixa.banco.service.transferencia.TransferenciaPFImpl;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +29,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class ContaCorrentePFService implements ConsultaSaldo<ContaCorrente>, Deposito<ContaCorrente>,
-        SaquePFImpl<ContaCorrente>, TransferenciaPFImpl<ContaCorrente> {
+        SaquePFImpl<ContaCorrente>, TransferenciaPFImpl<ContaCorrente>, InvestirPFImpl<ContaCorrente> {
 
     private final ContaRepository contaRepository;
     private final ClienteRepository<ClientePF> clienteRepository;
@@ -102,4 +103,6 @@ public class ContaCorrentePFService implements ConsultaSaldo<ContaCorrente>, Dep
             throw new AccessDeniedException("Apenas o dono da conta pode realizar esta operação.");
         }
     }
+
+
 }

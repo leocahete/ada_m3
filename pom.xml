@@ -11,8 +11,8 @@
 	<groupId>cursoArquitetura.modulo4</groupId>
 	<artifactId>ada-tech-banco</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>Banco</name>
-	<description>Projeto Curso de Arquitetura de SW - Modulo 3</description>
+	<name>Banco SOLID e Patterns</name>
+	<description>Projeto Curso de Arquitetura de SW - Modulo 4</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

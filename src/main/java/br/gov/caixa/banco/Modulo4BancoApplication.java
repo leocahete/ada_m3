@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class Modulo3BancoApplication {
+public class Modulo4BancoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Modulo3BancoApplication.class, args);
+		SpringApplication.run(Modulo4BancoApplication.class, args);
 	}
 
 	@Bean

@@ -10,7 +10,8 @@ import java.math.BigDecimal;
 
 public interface SaquePJImpl<T extends Conta> extends Saque<ClientePJ, T>{
 
-    BigDecimal TAXA = BigDecimal.valueOf(0.005);
+    //Taxa de 5% para PJ sobre Saque
+    BigDecimal TAXA = BigDecimal.valueOf(0.05);
 
     @Override
     default void sacar(ClientePJ clientePJ, T conta, BigDecimal valor) throws ValorInvalidoException, SaldoInsuficienteException {
